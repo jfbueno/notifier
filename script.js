@@ -4,6 +4,8 @@ window.onload = function() {
             console.log(result);
         });
     }
+
+    notify();
 }
 
 function notify() {
