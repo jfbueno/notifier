@@ -4,10 +4,19 @@
         <link rel="stylesheet" href="style.css">
         <script src="script.js" charset="utf-8"></script>
     </head>
-    <body class="container">
-        <div class="panel center">
-            <h4>Olar, eu sou o Squirtle e vou te lembrar de beber água.</h4>
-        </div>
-        
+    <body>
+        <div class="form-style-6" id="config-container">
+            <h1>Configurar o avisador</h1>            
+
+            <label for="title">Título da notificação</label>
+            <input type="text" name="title" placeholder="Título da mensagem" />
+
+            <label for="body">Corpo da notificação</label>
+            <input type="text" name="body" placeholder="Corpo da mensagem" />
+
+            <label for="minutesTimeout">Intervalo de notificações</label>
+            <input type="number" name="minutesTimeout" placeholder="Avisar a cada quantos minutos?" min="1" max="180" />
+            <button id="btn-config">Configurar</button>
+        </div>        
     </body>
 </html>
