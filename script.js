@@ -57,4 +57,4 @@ function notify() {
     setTimeout(notify, timeout);
 }
 
-const getConfigObj = () => JSON.parse(localStorage.getItem(CONFIG_LOCAL_STORAGE_KEY));
+const getConfigObj = () => JSON.parse(localStorage.getItem(CONFIG_LOCAL_STORAGE_KEY)) || {};
