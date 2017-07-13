@@ -1,10 +1,15 @@
 const defaults = {
     title: 'Olar!',
     body: 'Não esqueça de beber água!',
-    minutesTimeout: 15
+    minutesTimeout: 30
 }
 
-const CONFIG_LOCAL_STORAGE_KEY = '';
+let mainConfig = { };
+
+const CONFIG_LOCAL_STORAGE_KEY = '_config';
+const getConfigObj = () => JSON.parse(localStorage.getItem(CONFIG_LOCAL_STORAGE_KEY)) || {};
+
+let notificationSound = new Audio('audio/att.ogg');
 
 window.onload = function() {
     if(Notification.permission !== "granted") {    
@@ -13,13 +18,26 @@ window.onload = function() {
         });
     }
 
-    __init();
+    init();
 }
 
-function __init() {    
-    document.getElementById('btn-config').addEventListener('click', btnConfigClick);    
+function init() {    
+    document.getElementById('btn-config').addEventListener('click', btnConfigClick);
+    document.getElementById('btn-test').addEventListener('click', sendNotification);
+
     initComponents();
-    notify();
+    loadConfiguration();
+    setTimeout(notify, mainConfig.timeout);
+}
+
+function loadConfiguration() {
+    const savedConfig = getConfigObj();
+
+    mainConfig = {
+        title: savedConfig.title || defaults.title,
+        body: savedConfig.body || defaults.body,
+        timeout: (savedConfig.minutesTimeout || defaults.minutesTimeout) * 60 * 1000
+    };
 }
 
 function initComponents() {
@@ -43,18 +61,31 @@ function btnConfigClick() {
     localStorage.setItem(CONFIG_LOCAL_STORAGE_KEY, JSON.stringify(configObj));
 }
 
-function notify() {
-    const configObj = getConfigObj();
+function notify() {    
+    sendNotification();
+    setTimeout(notify, mainConfig.timeout);
+}
+
+function sendNotification() {
+    loadConfiguration();
 
     const options = {
-        body: configObj.body || defaults.body,
+        body: mainConfig.body,
         icon: 'img/squirtle.png'
     }
   
-    const title = configObj.title || defaults.title;
-    const notification = new Notification(title, options);
-    const timeout = (configObj.minutesTimeout || defaults.minutesTimeout) * 60 * 1000;
-    setTimeout(notify, timeout);
+    notificationSound.play();
+    notificationSound.loop = true;
+
+    const notification = new Notification(mainConfig.title, options);
+
+    notification.onclick = function() {
+        this.close();
+    };
+
+    notification.onclose = function() {
+        notificationSound.pause();
+        notificationSound.currentTime = 0;        
+    };
 }
 
-const getConfigObj = () => JSON.parse(localStorage.getItem(CONFIG_LOCAL_STORAGE_KEY)) || {};

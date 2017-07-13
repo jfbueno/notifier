@@ -8,14 +8,14 @@ body {
     background: white;
 }
 
-.form-style-6{
+.main-style{
     font: 95% Arial, Helvetica, sans-serif;
     max-width: 400px;
     margin: 10px auto;
     padding: 16px;
     background: #F7F7F7;
 }
-.form-style-6 h1{
+.main-style h1{
     background: #84cabf;
     padding: 20px 0;
     font-size: 140%;
@@ -24,16 +24,16 @@ body {
     color: #fff;
     margin: -16px -16px 16px -16px;
 }
-.form-style-6 input[type="text"],
-.form-style-6 input[type="date"],
-.form-style-6 input[type="datetime"],
-.form-style-6 input[type="email"],
-.form-style-6 input[type="number"],
-.form-style-6 input[type="search"],
-.form-style-6 input[type="time"],
-.form-style-6 input[type="url"],
-.form-style-6 textarea,
-.form-style-6 select 
+.main-style input[type="text"],
+.main-style input[type="date"],
+.main-style input[type="datetime"],
+.main-style input[type="email"],
+.main-style input[type="number"],
+.main-style input[type="search"],
+.main-style input[type="time"],
+.main-style input[type="url"],
+.main-style textarea,
+.main-style select 
 {
     -webkit-transition: all 0.30s ease-in-out;
     -moz-transition: all 0.30s ease-in-out;
@@ -51,24 +51,24 @@ body {
     color: #555;
     font: 95% Arial, Helvetica, sans-serif;
 }
-.form-style-6 input[type="text"]:focus,
-.form-style-6 input[type="date"]:focus,
-.form-style-6 input[type="datetime"]:focus,
-.form-style-6 input[type="email"]:focus,
-.form-style-6 input[type="number"]:focus,
-.form-style-6 input[type="search"]:focus,
-.form-style-6 input[type="time"]:focus,
-.form-style-6 input[type="url"]:focus,
-.form-style-6 textarea:focus,
-.form-style-6 select:focus
+.main-style input[type="text"]:focus,
+.main-style input[type="date"]:focus,
+.main-style input[type="datetime"]:focus,
+.main-style input[type="email"]:focus,
+.main-style input[type="number"]:focus,
+.main-style input[type="search"]:focus,
+.main-style input[type="time"]:focus,
+.main-style input[type="url"]:focus,
+.main-style textarea:focus,
+.main-style select:focus
 {
     box-shadow: 0 0 5px #84cabf;
     padding: 3%;
     border: 1px solid #84cabf;
 }
 
-.form-style-6 button,
-.form-style-6 input[type="button"]{
+.main-style button,
+.main-style input[type="button"]{
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -81,8 +81,13 @@ body {
     border-left-style: none;    
     color: #fff;
 }
-.form-style-6 button:hover,
-.form-style-6 input[type="button"]:hover{
+
+.main-style button:hover,
+.main-style input[type="button"]:hover{
     background: #77b7ad;
     cursor: pointer;
+}
+
+#btn-test {    
+    margin-top: 10px;
 }
