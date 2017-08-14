@@ -1,24 +1,39 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">        
         <link rel="stylesheet" href="style.css">
         <script src="script.js" charset="utf-8"></script>
     </head>
     <body>
-        <div class="main-style" id="config-container">
-            <h1>Configurar o avisador</h1>            
-
-            <label for="title">Título da notificação</label>
-            <input type="text" name="title" placeholder="Título da mensagem" />
-
-            <label for="body">Corpo da notificação</label>
-            <input type="text" name="body" placeholder="Corpo da mensagem" />
-
-            <label for="minutesTimeout">Intervalo de notificações</label>
-            <input type="number" name="minutesTimeout" placeholder="Avisar a cada quantos minutos?" min="1" max="180" />
-            <button id="btn-config">Configurar</button>
-
-            <button id="btn-test">Testar minhas configurações</button>
-        </div>        
+        <div id="config-container" class="container mt-5">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1>Avisador</h1>
+                    <p>Determine a configuração ou deixe em branco para usar o padrão</p>
+                    <hr>
+                </div>
+                
+                <div class="col-md-4 ml-auto mr-auto">
+                    <div class="form-group">
+                        <label for="title">Título da notificação</label>
+                        <input type="text" class="form-control" name="title" placeholder="Título da mensagem" />
+                        <small class="form-text text-muted" id="default-title">---------------</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="body">Corpo da notificação</label>
+                        <input type="text" class="form-control" name="body" placeholder="Corpo da mensagem" />
+                        <small class="form-text text-muted" id="default-body">-------------</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="minutesTimeout">Intervalo de notificações</label>
+                        <input type="number" class="form-control" name="minutesTimeout" placeholder="Avisar a cada quantos minutos?" min="1" max="180" />
+                        <small class="form-text text-muted" id="default-minutesTimeout">-------------</small>
+                    </div>
+                    <button class="btn btn-primary btn-block" style="coursor: pointer" id="btn-config">Configurar</button>
+                    <button class="btn btn-secondary btn-block" id="btn-test">Testar minhas configurações</button>
+                </div>
+            </div>
+        </div>  
     </body>
 </html>

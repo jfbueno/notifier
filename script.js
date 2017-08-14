@@ -46,11 +46,16 @@ function initComponents() {
     for(let prop in config){
         document.getElementsByName(prop)[0].value = config[prop] || defaults[prop];
     }
+
+    for(let prop in defaults){
+        const id = 'default-' + prop;
+        document.getElementById(id).innerHTML = '<b>Padrão</b>: ' + defaults[prop];
+    }
 }
 
 function btnConfigClick() {
     const configObj = { }
-    const inputs = document.querySelectorAll('#config-container>input');
+    const inputs = document.querySelectorAll('#config-container input');
 
     for(let element of inputs) {
         if(element.value && element.name){
